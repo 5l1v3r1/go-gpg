@@ -61,7 +61,7 @@ import (
 
 func main() {
 	var privateKey []byte
-	passphrase := "timbuktu"
+	passphrase := []byte("timbuktu")
 	// Retrieve the private key from somewhere...
 
 	toDecrypt, err := os.OpenFile("path/to/encrypted/file", os.O_RDONLY, 0660)
