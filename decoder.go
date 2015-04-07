@@ -42,12 +42,12 @@ func (d *Decoder) Decode(r io.Reader, w io.Writer) error {
 		}
 	}
 
-	md, err := openpgp.ReadMessage(r, entitylist, nil /* no prompt */, nil)
+	read, err := openpgp.ReadMessage(r, entitylist, nil, nil)
 	if err != nil {
 		return err
 	}
 
-	_, err = io.Copy(w, md.LiteralData.Body)
+	_, err = io.Copy(w, read.LiteralData.Body)
 	return err
 
 }
